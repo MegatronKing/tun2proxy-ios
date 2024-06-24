@@ -442,8 +442,6 @@ async fn handle_udp_associate_session(
         )
     };
 
-    log::info!("Beginning {} -> {}", session_info, udp_addr);
-
     // `_server` is meaningful here, it must be alive all the time
     // to ensure that UDP transmission will not be interrupted accidentally.
     let (_server, udp_addr) = match udp_addr {
@@ -454,6 +452,8 @@ async fn handle_udp_associate_session(
             (Some(server), udp_addr.ok_or("udp associate failed")?)
         }
     };
+
+    log::info!("Beginning {} -> {}", session_info, udp_addr);
 
     let mut udp_server = create_udp_stream(&socket_queue, udp_addr).await?;
 
