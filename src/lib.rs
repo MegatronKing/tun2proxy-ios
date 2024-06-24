@@ -442,7 +442,7 @@ async fn handle_udp_associate_session(
         )
     };
 
-    log::info!("Beginning {}", session_info);
+    log::info!("Beginning {} -> {}", session_info, udp_addr);
 
     // `_server` is meaningful here, it must be alive all the time
     // to ensure that UDP transmission will not be interrupted accidentally.
@@ -519,7 +519,7 @@ async fn handle_udp_associate_session(
         }
     }
 
-    log::info!("Ending {}", session_info);
+    log::info!("Ending {} -> {}", session_info, udp_addr);
 
     Ok(())
 }
