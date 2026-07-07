@@ -59,7 +59,7 @@ mod virtual_dns;
 
 const DNS_PORT: u16 = 53;
 
-const MAX_SESSIONS: u64 = 200;
+const MAX_SESSIONS: u64 = 65535;
 
 static TASK_COUNT: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
 use std::sync::atomic::Ordering::Relaxed;
